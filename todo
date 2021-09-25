@@ -1,0 +1,20 @@
+fragment
+-home
+(menu home)
+--daftarfasilitas(umum, spesialis, diagnosa)
+---detildaftarfasilitas(umum: farmasi, ruang rawat inap, ...; spesialis: eeg, ...; ...)
+--event
+--konsultasi
+---buatkonsultasi
+----pilihjeniskonsul(masuk model baru)
+(bottom menu)
+-daftardokter
+--detildokter
+-profile
+
+model
+-user (cuman isi 1 anggep yg login (buat profile sama buatkonsultasi)
+-dokter
+-fasilitas
+-jeniskonsul
+-janji (dari user + jeniskonsul)
