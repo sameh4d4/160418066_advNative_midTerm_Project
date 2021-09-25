@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.advnative_project_uts_160418066.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
     override fun onCreateView(
@@ -17,6 +19,10 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        super.onViewCreated(view, savedInstanceState)
+        btnFasilitas.setOnClickListener {
+            val action=HomeFragmentDirections.actionDaftarFasilitas()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 }
