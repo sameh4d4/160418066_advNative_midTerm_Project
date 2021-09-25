@@ -17,4 +17,4 @@ model
 -dokter
 -fasilitas
 -jeniskonsul
--janji (dari user + jeniskonsul)
+-janjikonsultasi (dari user + jeniskonsul)
