@@ -8,19 +8,107 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.advnative_project_uts_160418066.view.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/actionDaftarFasilitas"
-            app:destination="@id/daftarFasilitasFragment" />
+            android:id="@+id/actionDaftarFasilitasFragment"
+            app:destination="@id/daftarFasilitasFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/actionEventFragment"
+            app:destination="@id/eventFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/actionKonsultasiFragment"
+            app:destination="@id/konsultasiFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/daftarFasilitasFragment"
         android:name="com.example.advnative_project_uts_160418066.view.DaftarFasilitasFragment"
-        android:label="fragment_daftar_fasilitas"
-        tools:layout="@layout/fragment_daftar_fasilitas" >
+        android:label="Daftar Fasilitas"
+        tools:layout="@layout/fragment_daftar_fasilitas">
         <action
-            android:id="@+id/actionHomeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/actionHomeFragmentFromFasilitas"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/actionDaftarFasilitasDetilFragment"
+            app:destination="@id/daftarFasilitasDetilListFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.EventFragment"
+        android:label="Event"
+        tools:layout="@layout/fragment_event">
+        <action
+            android:id="@+id/actionHomeFragmentFromEvent"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/konsultasiFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.KonsultasiFragment"
+        android:label="Konsultasi"
+        tools:layout="@layout/fragment_konsultasi">
+        <action
+            android:id="@+id/actionHomeFragmentFromKonsultasi"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/actionKonsultasiBuatFragment"
+            app:destination="@id/konsultasiBuatFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/daftarFasilitasDetilListFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.DaftarFasilitasDetilListFragment"
+        android:label="Daftar Fasilitas"
+        tools:layout="@layout/fragment_daftar_fasilitas_detil_list" >
+        <action
+            android:id="@+id/actionDaftarFasilitasFragmentFromDetil"
+            app:destination="@id/daftarFasilitasFragment"
+            app:popUpTo="@id/daftarFasilitasFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/konsultasiBuatFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.KonsultasiBuatFragment"
+        android:label="Konsultasi"
+        tools:layout="@layout/fragment_konsultasi_buat">
+        <action
+            android:id="@+id/actionKonsultasiBuatPilihJenisFragment"
+            app:destination="@id/konsultasiBuatPilihJenisListFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/actionKonsultasiFragmentFromBuat"
+            app:destination="@id/konsultasiFragment"
+            app:popUpTo="@id/konsultasiFragment" app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/konsultasiBuatPilihJenisListFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.KonsultasiBuatPilihJenisListFragment"
+        android:label="Buat Janji Baru"
+        tools:layout="@layout/fragment_konsultasi_buat_pilih_jenis_list">
+        <action
+            android:id="@+id/actionKonsultasiBuatFragmentFromPilihJenis"
+            app:destination="@id/konsultasiBuatFragment"
+            app:popUpTo="@id/konsultasiBuatFragment" app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>

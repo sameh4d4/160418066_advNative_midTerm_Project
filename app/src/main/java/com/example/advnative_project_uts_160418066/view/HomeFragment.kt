@@ -21,7 +21,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnFasilitas.setOnClickListener {
-            val action=HomeFragmentDirections.actionDaftarFasilitas()
+            val action=HomeFragmentDirections.actionDaftarFasilitasFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
+        btnEvent.setOnClickListener {
+            val action=HomeFragmentDirections.actionEventFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
+        btnKonsultasi.setOnClickListener {
+            val action=HomeFragmentDirections.actionKonsultasiFragment()
             Navigation.findNavController(it).navigate(action)
         }
     }
