@@ -10,6 +10,7 @@ data class User(
 )
 
 data class Dokter(
+    val id:String?,
     val nama:String?,
     val spesialisasi:String?,
     val noHp:String?,
