@@ -3,40 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_app_nav"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/itemHome">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/itemHome"
         android:name="com.example.advnative_project_uts_160418066.view.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/actionDaftarFasilitasFragment"
-            app:destination="@id/daftarFasilitasFragment"
+            app:destination="@id/itemFasilitas"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/actionEventFragment"
-            app:destination="@id/eventFragment"
+            app:destination="@id/itemEvent"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/actionKonsultasiFragment"
-            app:destination="@id/konsultasiFragment"
+            app:destination="@id/itemKonsultasi"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/daftarFasilitasFragment"
+        android:id="@+id/itemFasilitas"
         android:name="com.example.advnative_project_uts_160418066.view.DaftarFasilitasFragment"
         android:label="Daftar Fasilitas"
         tools:layout="@layout/fragment_daftar_fasilitas">
         <action
             android:id="@+id/actionHomeFragmentFromFasilitas"
-            app:destination="@id/homeFragment"
+            app:destination="@id/itemHome"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/homeFragment" />
+            app:popUpTo="@id/itemHome" />
         <action
             android:id="@+id/actionDaftarFasilitasDetilFragment"
             app:destination="@id/daftarFasilitasDetilListFragment"
@@ -44,26 +44,26 @@
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/eventFragment"
+        android:id="@+id/itemEvent"
         android:name="com.example.advnative_project_uts_160418066.view.EventFragment"
         android:label="Event"
         tools:layout="@layout/fragment_event">
         <action
             android:id="@+id/actionHomeFragmentFromEvent"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/homeFragment"
+            app:destination="@id/itemHome"
+            app:popUpTo="@id/itemHome"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/konsultasiFragment"
+        android:id="@+id/itemKonsultasi"
         android:name="com.example.advnative_project_uts_160418066.view.KonsultasiFragment"
         android:label="Konsultasi"
         tools:layout="@layout/fragment_konsultasi">
         <action
             android:id="@+id/actionHomeFragmentFromKonsultasi"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/homeFragment"
+            app:destination="@id/itemHome"
+            app:popUpTo="@id/itemHome"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
         <action
@@ -79,8 +79,8 @@
         tools:layout="@layout/fragment_daftar_fasilitas_detil_list" >
         <action
             android:id="@+id/actionDaftarFasilitasFragmentFromDetil"
-            app:destination="@id/daftarFasilitasFragment"
-            app:popUpTo="@id/daftarFasilitasFragment"
+            app:destination="@id/itemFasilitas"
+            app:popUpTo="@id/itemFasilitas"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
@@ -96,8 +96,9 @@
             app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/actionKonsultasiFragmentFromBuat"
-            app:destination="@id/konsultasiFragment"
-            app:popUpTo="@id/konsultasiFragment" app:enterAnim="@android:anim/fade_in"
+            app:destination="@id/itemKonsultasi"
+            app:popUpTo="@id/itemKonsultasi"
+            app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
@@ -108,7 +109,36 @@
         <action
             android:id="@+id/actionKonsultasiBuatFragmentFromPilihJenis"
             app:destination="@id/konsultasiBuatFragment"
-            app:popUpTo="@id/konsultasiBuatFragment" app:enterAnim="@android:anim/fade_in"
+            app:popUpTo="@id/konsultasiBuatFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDokter"
+        android:name="com.example.advnative_project_uts_160418066.view.DaftarDokterFragment"
+        android:label="Daftar Dokter"
+        tools:layout="@layout/fragment_daftar_dokter" >
+        <action
+            android:id="@+id/actionDetilDokter"
+            app:destination="@id/daftarDokterDetilFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.example.advnative_project_uts_160418066.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/daftarDokterDetilFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.DaftarDokterDetilFragment"
+        android:label="Daftar Dokter"
+        tools:layout="@layout/fragment_daftar_dokter_detil" >
+        <action
+            android:id="@+id/actionDaftarDokter"
+            app:destination="@id/itemDokter"
+            app:popUpTo="@id/itemDokter"
+            app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>
