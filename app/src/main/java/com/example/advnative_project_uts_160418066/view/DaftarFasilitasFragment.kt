@@ -21,7 +21,15 @@ class DaftarFasilitasFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnFasUmum.setOnClickListener {
-            val action=DaftarFasilitasFragmentDirections.actionDaftarFasilitasDetilFragment()
+            val action=DaftarFasilitasFragmentDirections.actionDaftarFasilitasDetilFragment("umum")
+            Navigation.findNavController(it).navigate(action)
+        }
+        btnFasDiagnosa.setOnClickListener {
+            val action=DaftarFasilitasFragmentDirections.actionDaftarFasilitasDetilFragment("diagnosa")
+            Navigation.findNavController(it).navigate(action)
+        }
+        btnFasSpesialis.setOnClickListener {
+            val action=DaftarFasilitasFragmentDirections.actionDaftarFasilitasDetilFragment("spesialis")
             Navigation.findNavController(it).navigate(action)
         }
     }

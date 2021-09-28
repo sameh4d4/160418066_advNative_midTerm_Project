@@ -83,6 +83,9 @@
             app:popUpTo="@id/itemFasilitas"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <argument
+            android:name="jenisFasilitas"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/konsultasiBuatFragment"
