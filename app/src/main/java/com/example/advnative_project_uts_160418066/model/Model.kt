@@ -6,7 +6,6 @@ data class User(
     val tglLahir:String?,
     val noHp:String?,
     val email:String?,
-    val kelamin:String?
 )
 
 data class Dokter(
