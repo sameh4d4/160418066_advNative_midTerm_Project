@@ -6,10 +6,11 @@ import com.example.advnative_project_uts_160418066.model.Dokter
 
 class DokterListViewModel:ViewModel() {
     val doktersLD = MutableLiveData<List<Dokter>>()
-    val studentLoadErrorLD = MutableLiveData<Boolean>()
+    val doktersLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
+    val dokterLD=MutableLiveData<Dokter>()
 
-    fun refresh() {
+    fun getDokterList(): ArrayList<Dokter> {
         val Dokter1 = Dokter(
             "0",
             "Dr.achmad fahmi, dr., Sp.BS(K)",
@@ -17,7 +18,7 @@ class DokterListViewModel:ViewModel() {
             "00000",
             "email@test.com",
             "jl raya",
-            "http://adv.jitusolution.com/student.php?id=0")
+            "https://i.pravatar.cc/300?img=0")
         val Dokter2 = Dokter(
             "1",
             "Dr.agoes wilyono, Sp.S",
@@ -25,7 +26,7 @@ class DokterListViewModel:ViewModel() {
             "00000",
             "email@test.com",
             "jl raya",
-            "http://adv.jitusolution.com/student.php?id=1")
+            "https://i.pravatar.cc/300?img=1")
         val Dokter3 = Dokter(
             "2",
             "Dr.achmad yuniari heryana, Sp.A",
@@ -33,11 +34,18 @@ class DokterListViewModel:ViewModel() {
             "00000",
             "email@test.com",
             "jl raya",
-            "http://adv.jitusolution.com/student.php?id=2")
+            "https://i.pravatar.cc/300?img=2")
+        return arrayListOf<Dokter>(Dokter1,Dokter2,Dokter3)
+    }
 
-        val dokterList:ArrayList<Dokter> = arrayListOf<Dokter>(Dokter1,Dokter2,Dokter3)
+    fun refresh() {
+        val dokterList:ArrayList<Dokter> = getDokterList()
         doktersLD.value = dokterList
-        studentLoadErrorLD.value = false
+        doktersLoadErrorLD.value = false
         loadingLD.value = false
+    }
+
+    fun getOneDokter(id:Int){
+        dokterLD.value=getDokterList()[id]
     }
 }

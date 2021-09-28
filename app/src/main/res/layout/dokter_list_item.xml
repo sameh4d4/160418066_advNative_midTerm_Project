@@ -25,7 +25,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imgDokterListItem"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
@@ -44,7 +44,7 @@
                 android:clickable="false"
                 android:text="Nama"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imgDokterListItem"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
@@ -56,8 +56,18 @@
                 android:clickable="false"
                 android:text="spesialisasi"
                 android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imgDokterListItem"
                 app:layout_constraintTop_toBottomOf="@+id/btnNamaDokterCard" />
+
+            <ProgressBar
+                android:id="@+id/progressBarItemListDok"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imgDokterListItem"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgDokterListItem" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

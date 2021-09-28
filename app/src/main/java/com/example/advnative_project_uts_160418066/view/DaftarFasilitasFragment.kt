@@ -20,7 +20,7 @@ class DaftarFasilitasFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnUmum.setOnClickListener {
+        btnFasUmum.setOnClickListener {
             val action=DaftarFasilitasFragmentDirections.actionDaftarFasilitasDetilFragment()
             Navigation.findNavController(it).navigate(action)
         }

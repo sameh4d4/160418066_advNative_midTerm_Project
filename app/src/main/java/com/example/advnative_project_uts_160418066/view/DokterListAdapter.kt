@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advnative_project_uts_160418066.R
 import com.example.advnative_project_uts_160418066.model.Dokter
+import com.example.advnative_project_uts_160418066.util.loadImage
 import kotlinx.android.synthetic.main.dokter_list_item.view.*
 
 class DokterListAdapter(val dokterList:ArrayList<Dokter>):RecyclerView.Adapter<DokterListAdapter.DokterViewHolder>() {
@@ -25,16 +27,13 @@ class DokterListAdapter(val dokterList:ArrayList<Dokter>):RecyclerView.Adapter<D
     }
 
     override fun onBindViewHolder(holder: DokterViewHolder, position: Int) {
-//        holder.view.btnNamaDokterCard.setText(dokterList[position].nama)
-//        holder.view.btnSpesialisasiDokterCard.setText(dokterList[position].spesialisasi)
-//        holder.view.cardDokterList.setOnClickListener {
-//            Toast.makeText(context, "asd", Toast.LENGTH_SHORT).show()
-//        }
         with(holder.view){
             btnNamaDokterCard.setText(dokterList[position].nama)
             btnSpesialisasiDokterCard.setText(dokterList[position].spesialisasi)
+            imgDokterListItem.loadImage(dokterList[position].gambar.toString(),progressBarItemListDok)
             cardDokterList.setOnClickListener {
-                Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
+                val action=DaftarDokterFragmentDirections.actionDetilDokter(position)
+                Navigation.findNavController(it).navigate(action)
             }
         }
     }

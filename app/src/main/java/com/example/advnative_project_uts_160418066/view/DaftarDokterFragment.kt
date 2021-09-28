@@ -38,7 +38,7 @@ class DaftarDokterFragment : Fragment() {
             dokterListAdapter.updateDoktertList(it)
         })
 
-        viewModel.studentLoadErrorLD.observe(viewLifecycleOwner, Observer {
+        viewModel.doktersLoadErrorLD.observe(viewLifecycleOwner, Observer {
             if(it == true) {
                 txtErrorDokterList.visibility = View.VISIBLE
             } else {
