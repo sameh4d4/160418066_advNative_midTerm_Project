@@ -1,22 +1,22 @@
 perlu buat db agar lebih mudah perpindahan datanya
 
 fragment
--home
+-home v
 (menu home)
 --daftarfasilitas(umum, spesialis, diagnosa)
 ---detildaftarfasilitas(umum: farmasi, ruang rawat inap, ...; spesialis: eeg, ...; ...)
---event
+--event v
 --konsultasi
 ---buatkonsultasi
 ----pilihjeniskonsul(masuk model baru)
 (bottom menu)
--daftardokter
---detildokter
--profile
+-daftardokter v
+--detildokter v
+-profile v
 
 model
--user (cuman isi 1 anggep yg login (buat profile sama buatkonsultasi)
--dokter
+-user (cuman isi 1 anggep yg login (buat profile sama buatkonsultasi) v
+-dokter v
 -fasilitas
 -jeniskonsul
 -janjikonsultasi (dari user + jeniskonsul)
