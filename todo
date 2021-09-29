@@ -3,8 +3,8 @@ perlu buat db agar lebih mudah perpindahan datanya
 fragment
 -home v
 (menu home)
---daftarfasilitas(umum, spesialis, diagnosa)
----detildaftarfasilitas(umum: farmasi, ruang rawat inap, ...; spesialis: eeg, ...; ...)
+--daftarfasilitas(umum, spesialis, diagnosa) v
+---detildaftarfasilitas(umum: farmasi, ruang rawat inap, ...; spesialis: eeg, ...; ...) v
 --event v
 --konsultasi
 ---buatkonsultasi
@@ -17,6 +17,5 @@ fragment
 model
 -user (cuman isi 1 anggep yg login (buat profile sama buatkonsultasi) v
 -dokter v
--fasilitas
+-fasilitas v
 -jeniskonsul
--janjikonsultasi (dari user + jeniskonsul)
