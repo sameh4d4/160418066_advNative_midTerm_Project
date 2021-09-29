@@ -37,6 +37,7 @@ class DaftarDokterDetilFragment : Fragment() {
                 txtNamaDetilDokter.setText(nama)
                 txtNoTelpDetilDokter.setText(noHp)
                 txtSpesialisasiDetilDokter.setText(spesialisasi)
+                txtEmailDetilDokter.setText(email)
                 imgDetilDokter.loadImage(gambar.toString(),progressBarDetilDokter)
             }
         })

@@ -15,24 +15,24 @@ class DokterListViewModel:ViewModel() {
             "0",
             "Dr.achmad fahmi, dr., Sp.BS(K)",
             "Neuro Surgery",
-            "00000",
-            "email@test.com",
+            "081231",
+            "email1@test.com",
             "jl raya",
             "https://i.pravatar.cc/300?img=0")
         val Dokter2 = Dokter(
             "1",
             "Dr.agoes wilyono, Sp.S",
             "Neurology",
-            "00000",
-            "email@test.com",
+            "081232",
+            "email2@test.com",
             "jl raya",
             "https://i.pravatar.cc/300?img=1")
         val Dokter3 = Dokter(
             "2",
             "Dr.achmad yuniari heryana, Sp.A",
             "Paediatric",
-            "00000",
-            "email@test.com",
+            "081233",
+            "email3@test.com",
             "jl raya",
             "https://i.pravatar.cc/300?img=2")
         return arrayListOf<Dokter>(Dokter1,Dokter2,Dokter3)
