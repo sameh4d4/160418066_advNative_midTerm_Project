@@ -22,3 +22,7 @@ data class Fasilitas(
     val nama:String?,
     val gambar:String?,
 )
+
+data class Departemen(
+    val nama:String?
+)

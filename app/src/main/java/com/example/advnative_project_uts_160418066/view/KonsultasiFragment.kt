@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.advnative_project_uts_160418066.R
+import kotlinx.android.synthetic.main.fragment_konsultasi.*
 
 class KonsultasiFragment : Fragment() {
     override fun onCreateView(
@@ -18,5 +20,9 @@ class KonsultasiFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        btnKonsultasiBuatBaru.setOnClickListener {
+            val action=KonsultasiFragmentDirections.actionKonsultasiBuatFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 }

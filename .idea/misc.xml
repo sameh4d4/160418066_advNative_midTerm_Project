@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/activity_main.xml" value="0.3546195652173913" />
+        <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/departemen_list_item.xml" value="0.36277173913043476" />
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/dokter_list_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fasilitas_list_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fragment_daftar_dokter.xml" value="0.36666666666666664" />
@@ -12,6 +13,9 @@
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fragment_daftar_fasilitas_detil_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fragment_event.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fragment_konsultasi.xml" value="0.36666666666666664" />
+        <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fragment_konsultasi_buat.xml" value="0.36277173913043476" />
+        <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fragment_konsultasi_buat_pilih_jenis_list.xml" value="0.36277173913043476" />
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/SMT 7/Adv Native/AdvNative_Project_UTS_160418066/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
