@@ -31,7 +31,7 @@ class DepartemenListAdapter(val departemenList:ArrayList<Departemen>):RecyclerVi
         holder.view.txtNamaItemListDepartemen.setText(departemenList[position].nama)
         holder.view.cardItemListDepartement.setOnClickListener {
             val builder = AlertDialog.Builder(holder.view.context)
-            builder.setTitle("Cek Kode")
+            builder.setTitle("Konsultasi")
             builder.setMessage("Janji telah dibuat!")
             builder.setPositiveButton(android.R.string.ok) { dialog, which ->
                 val action=KonsultasiBuatPilihJenisListFragmentDirections.actionItemKonsultasiFromBuatPilihJenis()

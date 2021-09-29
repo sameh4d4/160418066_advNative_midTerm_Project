@@ -5,11 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.advnative_project_uts_160418066.R
+import com.example.advnative_project_uts_160418066.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_konsultasi_buat.*
 
 class KonsultasiBuatFragment : Fragment() {
+    private lateinit var viewModel: UserViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,5 +33,18 @@ class KonsultasiBuatFragment : Fragment() {
             val action=KonsultasiBuatFragmentDirections.actionKonsultasiBuatPilihJenisFragment()
             Navigation.findNavController(it).navigate(action)
         }
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        viewModel.getUser()
+        observeViewModel()
+    }
+
+    fun observeViewModel() {
+        viewModel.userLD.observe(viewLifecycleOwner, Observer {
+            with(it){
+                txtKonsultasiBuatMRN.setText(mrn)
+                txtKonsultasiBuatNamaPasien.setText(name)
+            }
+        })
     }
 }
