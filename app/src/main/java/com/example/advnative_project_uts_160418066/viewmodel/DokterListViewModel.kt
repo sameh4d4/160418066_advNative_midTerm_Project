@@ -35,7 +35,7 @@ class DokterListViewModel:ViewModel() {
             "email3@test.com",
             "jl raya",
             "https://i.pravatar.cc/300?img=2")
-        return arrayListOf<Dokter>(Dokter1,Dokter2,Dokter3)
+        return arrayListOf(Dokter1,Dokter2,Dokter3)
     }
 
     fun refresh() {

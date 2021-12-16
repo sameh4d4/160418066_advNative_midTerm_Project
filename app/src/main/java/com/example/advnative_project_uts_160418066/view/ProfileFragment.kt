@@ -1,5 +1,8 @@
 package com.example.advnative_project_uts_160418066.view
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,8 +29,19 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        viewModel.getUser()
+        viewModel.getUser(MainActivity.user)
         observeViewModel()
+        btnLogOutProfile.setOnClickListener {
+            val sharedFile="com.example.advnative_project_uts_160418066"
+            var shared: SharedPreferences =this.requireActivity().getSharedPreferences(sharedFile, Context.MODE_PRIVATE)
+            val editor: SharedPreferences.Editor = shared.edit()
+            editor.putString("user_username", "")
+            editor.putString("user_password", "")
+            editor.apply()
+            var intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
     }
 
     fun observeViewModel() {
@@ -36,7 +50,7 @@ class ProfileFragment : Fragment() {
                 txtTeleponProfile.setText(noHp)
                 txtEmailProfile.setText(email)
                 txtMRNProfile.setText(mrn)
-                txtNamaProfile.setText(name)
+                txtNamaProfile.setText(nama)
                 txtTglLahirProfile.setText(tglLahir)
             }
         })

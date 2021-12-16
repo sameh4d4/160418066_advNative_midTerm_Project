@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,7 +28,6 @@ class DaftarFasilitasDetilListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val jenis=DaftarFasilitasDetilListFragmentArgs.fromBundle(requireArguments()).jenisFasilitas
-//        Toast.makeText(context, jenis, Toast.LENGTH_SHORT).show()
         viewModel = ViewModelProvider(this).get(DetilFasilitasListViewModel::class.java)
         viewModel.fasilitasGet(jenis)
         recViewFasilitasDetilList.layoutManager = LinearLayoutManager(context)
@@ -36,11 +36,12 @@ class DaftarFasilitasDetilListFragment : Fragment() {
     }
 
     fun observeViewModel() {
-        viewModel.FacilitiesLD.observe(viewLifecycleOwner, Observer {
+        viewModel.facilitiesLD.observe(viewLifecycleOwner, Observer {
             fasilitasDetilListAdapter.updateFasilitasList(it)
+
         })
 
-        viewModel.FacilitiesLoadErrorLD.observe(viewLifecycleOwner, Observer {
+        viewModel.facilitiesLoadErrorLD.observe(viewLifecycleOwner, Observer {
             if(it == true) {
                 txtErrorFasilitasDetilList.visibility = View.VISIBLE
             } else {

@@ -11,21 +11,18 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class DepartementListViewModel(application: Application):AndroidViewModel(application), CoroutineScope {
-    val DepartementsLD = MutableLiveData<List<Departemen>>()
-    val DepartementsLoadErrorLD = MutableLiveData<Boolean>()
-    val loadingLD = MutableLiveData<Boolean>()
+class DepartementViewModel (application: Application): AndroidViewModel(application),
+    CoroutineScope {
+    private val job = Job()
+    val todoLD = MutableLiveData<Departemen>()
 
-    private var job = Job()
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
-    fun refresh() {
-        loadingLD.value = false
-        DepartementsLoadErrorLD.value = false
+    fun addDepartement(list:List<Departemen>) {
         launch {
             val db = buildDb(getApplication())
-            DepartementsLD.value = db.departemenDao().selectAllDepartement()
+            db.departemenDao().insertAll(*list.toTypedArray())
         }
     }
 }

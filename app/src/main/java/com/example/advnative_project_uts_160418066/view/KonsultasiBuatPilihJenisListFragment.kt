@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.advnative_project_uts_160418066.R
 import com.example.advnative_project_uts_160418066.viewmodel.DepartementListViewModel
@@ -35,20 +36,31 @@ class KonsultasiBuatPilihJenisListFragment : Fragment() {
         recViewDepartemenList.layoutManager = LinearLayoutManager(context)
         recViewDepartemenList.adapter = departemenListAdapter
         observeViewModel()
+        fabAddDepartmentList.setOnClickListener {
+            val action=KonsultasiBuatPilihJenisListFragmentDirections.actionTambahDepartemen()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     fun observeViewModel() {
         viewModel.DepartementsLD.observe(viewLifecycleOwner, Observer {
             departemenListAdapter.updateDepartementList(it)
-        })
-
-        viewModel.DepartementsLoadErrorLD.observe(viewLifecycleOwner, Observer {
-            if(it == true) {
+            if(it.isEmpty()){
+                txtErrorDepartemenList.text="Kosong"
                 txtErrorDepartemenList.visibility = View.VISIBLE
-            } else {
+            }
+            else{
                 txtErrorDepartemenList.visibility = View.GONE
             }
         })
+
+//        viewModel.DepartementsLoadErrorLD.observe(viewLifecycleOwner, Observer {
+//            if(it == true) {
+//                txtErrorDepartemenList.visibility = View.VISIBLE
+//            } else {
+//                txtErrorDepartemenList.visibility = View.GONE
+//            }
+//        })
 
         viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
             if(it == true) {

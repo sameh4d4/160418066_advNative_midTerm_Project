@@ -122,6 +122,9 @@
             app:destination="@id/itemKonsultasi"
             app:popUpTo="@id/itemKonsultasi"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/actionTambahDepartemen"
+            app:destination="@id/tambahDepartemenFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemDokter"
@@ -153,5 +156,15 @@
         <argument
             android:name="id"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/tambahDepartemenFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.TambahDepartemenFragment"
+        android:label="fragment_tambah_departemen"
+        tools:layout="@layout/fragment_tambah_departemen" >
+        <action
+            android:id="@+id/actionPilihDepartemenFromTambah"
+            app:destination="@id/konsultasiBuatPilihJenisListFragment"
+            app:popUpTo="@id/konsultasiBuatPilihJenisListFragment" />
     </fragment>
 </navigation>

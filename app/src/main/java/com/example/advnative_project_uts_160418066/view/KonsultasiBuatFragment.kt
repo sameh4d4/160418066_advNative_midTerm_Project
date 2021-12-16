@@ -35,15 +35,15 @@ class KonsultasiBuatFragment : Fragment() {
         }
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        viewModel.getUser()
+        viewModel.getUser(MainActivity.user)
         observeViewModel()
     }
 
     fun observeViewModel() {
         viewModel.userLD.observe(viewLifecycleOwner, Observer {
             with(it){
-                txtKonsultasiBuatMRN.setText(mrn)
-                txtKonsultasiBuatNamaPasien.setText(name)
+                txtKonsultasiBuatMRN.text = mrn
+                txtKonsultasiBuatNamaPasien.text = nama
             }
         })
     }
