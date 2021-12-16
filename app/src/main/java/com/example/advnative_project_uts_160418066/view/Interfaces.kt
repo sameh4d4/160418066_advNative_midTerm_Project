@@ -2,6 +2,7 @@ package com.example.advnative_project_uts_160418066.view
 
 import android.view.View
 import com.example.advnative_project_uts_160418066.model.Departemen
+import com.example.advnative_project_uts_160418066.model.Fasilitas
 
 //region department
 interface DepartemenCardClickListener{
@@ -23,9 +24,12 @@ interface FasilitasTambahClickListener{
     fun onFasilitasTambahClickListener(v:View)
 }
 interface FasilitasSaveChangeClickListener{
-    fun onFasilitasSaveChangeClickListener(v:View)
+    fun onFasilitasSaveChangeClickListener(v:View,obj:Fasilitas)
 }
 interface FasilitasDeleteClickListener{
     fun onFasilitasDeleteClickListener(v:View)
+}
+interface FasilitasEditBtnImageClickListener{
+    fun onFasilitasEditBtnImageClickListener(v:View,obj:Fasilitas)
 }
 //endregion

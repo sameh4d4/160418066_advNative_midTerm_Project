@@ -1,9 +1,11 @@
 package com.example.advnative_project_uts_160418066.view
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advnative_project_uts_160418066.R
 import com.example.advnative_project_uts_160418066.databinding.FasilitasListItemBinding
@@ -38,6 +40,11 @@ class FasilitasDetilListAdapter(val fasilitasList:ArrayList<Fasilitas>):Recycler
     }
 
     override fun onFasilitasCardClickListener(v: View) {
-        val uuid=v.tag.toString().toInt()
+        val uuid = v.tag.toString().toInt()
+        Log.d("uid",uuid.toString())
+        if (MainActivity.user.jabatan == 1) {
+            val act = DaftarFasilitasDetilListFragmentDirections.actionEditFasilitas(uuid)
+            Navigation.findNavController(v).navigate(act)
+        }
     }
 }

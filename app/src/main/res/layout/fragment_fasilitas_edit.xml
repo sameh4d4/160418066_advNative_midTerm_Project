@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="fasilitas" type="com.example.advnative_project_uts_160418066.model.Fasilitas" />
+        <variable name="btnPilihImageListener" type="com.example.advnative_project_uts_160418066.view.FasilitasEditBtnImageClickListener" />
+    </data>
     <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,6 +14,87 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView12"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="Edit Fasilitas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout6"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Nama Fasilitas"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEditFasilitas"
+                android:layout_width="match_parent"
+                android:text="@={fasilitas.nama}"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/btnPilihGambarEditFasilitas"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+            app:srcCompat="@drawable/ic_baseline_image_search_24" />
+
+        <ImageView
+            android:id="@+id/imgPreviewEditFasilitas"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:imageUrl="@{fasilitas.gambar}"
+            android:progressBar="@{pbEditFasilitas}"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnPilihGambarEditFasilitas"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ProgressBar
+            android:id="@+id/pbEditFasilitas"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/imgPreviewEditFasilitas"
+            app:layout_constraintEnd_toEndOf="@+id/imgPreviewEditFasilitas"
+            app:layout_constraintStart_toStartOf="@+id/imgPreviewEditFasilitas"
+            app:layout_constraintTop_toTopOf="@+id/imgPreviewEditFasilitas" />
+
+        <Button
+            android:id="@+id/btnSimpanEditFasilitas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="68dp"
+            android:text="Simpan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPreviewEditFasilitas" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
 </layout>

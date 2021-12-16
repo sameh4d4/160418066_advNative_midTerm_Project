@@ -17,9 +17,58 @@ class DetilFasilitasListViewModel(application: Application): AndroidViewModel(ap
     val facilitiesLD = MutableLiveData<List<Fasilitas>>()
     val facilitiesLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
+    val facilityLD=MutableLiveData<Fasilitas>()
 
     val TAG = "volleyTag"
     private var queue: RequestQueue?= null
+
+    fun updateFasilitas(obj:Fasilitas){
+        queue = Volley.newRequestQueue(getApplication())
+        val url = "https://ubaya.fun/flutter/160418066/API/AdvNa_uas/editFasilitas.php"
+        val stringRequest = object: StringRequest(
+            Method.POST, url,
+            { response ->
+
+            },
+            {
+                Log.d("status", "gagal")
+            }
+        ){
+            override fun getParams(): MutableMap<String, String> {
+                val param= HashMap<String,String>()
+                param["id"] = obj.id.toString()
+                param["nama"]=obj.nama.toString()
+                param["gambar"]=obj.gambar.toString()
+                return param
+            }
+        }
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
+    }
+
+    fun getOneFasilitas(id:Int){
+        queue = Volley.newRequestQueue(getApplication())
+        val url = "https://ubaya.fun/flutter/160418066/API/AdvNa_uas/getOneFacility.php"
+        val stringRequest = object: StringRequest(
+            Method.POST, url,
+            { response ->
+                val sType = object : TypeToken<Fasilitas>() { }.type
+                val result = Gson().fromJson<Fasilitas>(response, sType)
+                facilityLD.value = result
+            },
+            {
+                Log.d("status", "gagal")
+            }
+        ){
+            override fun getParams(): MutableMap<String, String> {
+                val param= HashMap<String,String>()
+                param["id"] = id.toString()
+                return param
+            }
+        }
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
+    }
 
     fun fasilitasGet(jenis:String){
         queue = Volley.newRequestQueue(getApplication())

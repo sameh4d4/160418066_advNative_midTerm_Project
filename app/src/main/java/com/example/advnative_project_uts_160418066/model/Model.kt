@@ -32,9 +32,9 @@ data class Dokter(
 
 data class Fasilitas(
     val id:String?,
-    val nama:String?,
+    var nama:String?,
     @SerializedName("gambar_link")
-    val gambar:String?,
+    var gambar:String?,
     val jenis:String?,
 )
 
