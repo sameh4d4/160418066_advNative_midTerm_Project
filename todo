@@ -6,9 +6,9 @@ fragment
 --daftarfasilitas(umum, spesialis, diagnosa) v
 ---detildaftarfasilitas(umum: farmasi, ruang rawat inap, ...; spesialis: eeg, ...; ...) v
 --event v
---konsultasi
----buatkonsultasi
-----pilihjeniskonsul(masuk model baru)
+--konsultasi v
+---buatkonsultasi v
+----pilihjeniskonsul(masuk model baru) v
 (bottom menu)
 -daftardokter v
 --detildokter v
@@ -18,4 +18,4 @@ model
 -user (cuman isi 1 anggep yg login (buat profile sama buatkonsultasi) v
 -dokter v
 -fasilitas v
--jeniskonsul
+-jeniskonsul v
