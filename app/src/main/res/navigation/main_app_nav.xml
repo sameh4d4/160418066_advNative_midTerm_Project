@@ -125,6 +125,9 @@
         <action
             android:id="@+id/actionTambahDepartemen"
             app:destination="@id/tambahDepartemenFragment" />
+        <action
+            android:id="@+id/actionEditDepartement"
+            app:destination="@id/editDepartemenFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemDokter"
@@ -160,11 +163,23 @@
     <fragment
         android:id="@+id/tambahDepartemenFragment"
         android:name="com.example.advnative_project_uts_160418066.view.TambahDepartemenFragment"
-        android:label="fragment_tambah_departemen"
-        tools:layout="@layout/fragment_tambah_departemen" >
+        android:label="Tambah Departemen"
+        tools:layout="@layout/fragment_tambah_departemen">
         <action
             android:id="@+id/actionPilihDepartemenFromTambah"
             app:destination="@id/konsultasiBuatPilihJenisListFragment"
             app:popUpTo="@id/konsultasiBuatPilihJenisListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editDepartemenFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.EditDepartemenFragment"
+        android:label="Edit Departemen" >
+        <action
+            android:id="@+id/actionPilihDepartemenFromEdit"
+            app:destination="@id/konsultasiBuatPilihJenisListFragment"
+            app:popUpTo="@id/konsultasiBuatPilihJenisListFragment" />
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
     </fragment>
 </navigation>

@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_konsultasi_buat_pilih_jenis_list.
 
 class KonsultasiBuatPilihJenisListFragment : Fragment() {
     private lateinit var viewModel:DepartementListViewModel
-    private val departemenListAdapter= DepartemenListAdapter(arrayListOf())
+    private val departemenListAdapter= DepartemenCardListAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +36,8 @@ class KonsultasiBuatPilihJenisListFragment : Fragment() {
         recViewDepartemenList.layoutManager = LinearLayoutManager(context)
         recViewDepartemenList.adapter = departemenListAdapter
         observeViewModel()
+        if(MainActivity.user.jabatan==1) fabAddDepartmentList.visibility=View.VISIBLE
+        else fabAddDepartmentList.visibility=View.GONE
         fabAddDepartmentList.setOnClickListener {
             val action=KonsultasiBuatPilihJenisListFragmentDirections.actionTambahDepartemen()
             Navigation.findNavController(it).navigate(action)
@@ -53,14 +55,6 @@ class KonsultasiBuatPilihJenisListFragment : Fragment() {
                 txtErrorDepartemenList.visibility = View.GONE
             }
         })
-
-//        viewModel.DepartementsLoadErrorLD.observe(viewLifecycleOwner, Observer {
-//            if(it == true) {
-//                txtErrorDepartemenList.visibility = View.VISIBLE
-//            } else {
-//                txtErrorDepartemenList.visibility = View.GONE
-//            }
-//        })
 
         viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
             if(it == true) {

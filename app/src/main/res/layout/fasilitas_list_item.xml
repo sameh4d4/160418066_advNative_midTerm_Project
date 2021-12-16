@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
     <data>
-        <variable
-            name="fasilitas"
-            type="com.example.advnative_project_uts_160418066.model.Fasilitas" />
+        <variable name="fasilitas" type="com.example.advnative_project_uts_160418066.model.Fasilitas" />
+        <variable name="fasilitasCardClickListener" type="com.example.advnative_project_uts_160418066.view.FasilitasCardClickListener" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,6 +16,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
+            android:tag="@{fasilitas.id}"
+            android:onClick="@{fasilitasCardClickListener::onFasilitasCardClickListener}"
             android:layout_width="0dp"
             android:layout_height="220dp"
             app:cardCornerRadius="8dp"

@@ -9,12 +9,12 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advnative_project_uts_160418066.R
 import com.example.advnative_project_uts_160418066.databinding.DepartemenListItemBinding
-import com.example.advnative_project_uts_160418066.databinding.FasilitasListItemBinding
 import com.example.advnative_project_uts_160418066.model.Departemen
-import kotlinx.android.synthetic.main.departemen_list_item.view.*
 
-class DepartemenListAdapter(val departemenList:ArrayList<Departemen>):RecyclerView.Adapter<DepartemenListAdapter.DepartemenListViewHolder>(),
-    CardDepartemenClickListener {
+class DepartemenCardListAdapter(val departemenList:ArrayList<Departemen>):RecyclerView.Adapter<DepartemenCardListAdapter.DepartemenListViewHolder>(),
+    DepartemenCardClickListener,
+    DepartemenEditClick
+{
     class DepartemenListViewHolder(val view:DepartemenListItemBinding):RecyclerView.ViewHolder(view.root)
 
     fun updateDepartementList(newDepartList: List<Departemen>){
@@ -24,6 +24,7 @@ class DepartemenListAdapter(val departemenList:ArrayList<Departemen>):RecyclerVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DepartemenListViewHolder {
+
         val inflater = LayoutInflater.from(parent.context)
 //        val view = inflater.inflate(R.layout.departemen_list_item, parent, false)
         val view = DataBindingUtil.inflate<DepartemenListItemBinding>(inflater,R.layout.departemen_list_item,parent,false)
@@ -33,6 +34,9 @@ class DepartemenListAdapter(val departemenList:ArrayList<Departemen>):RecyclerVi
     override fun onBindViewHolder(holder: DepartemenListViewHolder, position: Int) {
         holder.view.departemen=departemenList[position]
         holder.view.listenerCardOnClick=this
+        holder.view.listenerEditDepartOnClick=this
+        if(MainActivity.user.jabatan==2) holder.view.imgEditDepartement.visibility=View.GONE
+        else holder.view.imgEditDepartement.visibility=View.VISIBLE
     }
 
     override fun getItemCount(): Int {
@@ -48,5 +52,11 @@ class DepartemenListAdapter(val departemenList:ArrayList<Departemen>):RecyclerVi
             Navigation.findNavController(v).navigate(action)
         }
         builder.show()
+    }
+
+    override fun onDepartemenEditClickListener(v: View) {
+        val uuid=v.tag.toString().toInt()
+        val action=KonsultasiBuatPilihJenisListFragmentDirections.actionEditDepartement(uuid)
+        Navigation.findNavController(v).navigate(action)
     }
 }

@@ -14,7 +14,7 @@ import kotlin.coroutines.CoroutineContext
 class DepartementViewModel (application: Application): AndroidViewModel(application),
     CoroutineScope {
     private val job = Job()
-    val todoLD = MutableLiveData<Departemen>()
+    val departemenLD = MutableLiveData<Departemen>()
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
@@ -23,6 +23,18 @@ class DepartementViewModel (application: Application): AndroidViewModel(applicat
         launch {
             val db = buildDb(getApplication())
             db.departemenDao().insertAll(*list.toTypedArray())
+        }
+    }
+    fun getDepartement(uuid:Int){
+        launch {
+            val db= buildDb(getApplication())
+            departemenLD.value=db.departemenDao().selectDepartement(uuid)
+        }
+    }
+    fun updateDepartement(depart:Departemen){
+        launch {
+            val db = buildDb(getApplication())
+            db.departemenDao().update(depart.nama,depart.uuid)
         }
     }
 }

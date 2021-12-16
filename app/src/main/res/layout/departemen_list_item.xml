@@ -6,7 +6,10 @@
     >
     <data>
         <variable name="departemen" type="com.example.advnative_project_uts_160418066.model.Departemen" />
-        <variable name="listenerCardOnClick" type="com.example.advnative_project_uts_160418066.view.CardDepartemenClickListener" />
+        <variable name="listenerCardOnClick" type="com.example.advnative_project_uts_160418066.view.DepartemenCardClickListener" />
+        <variable
+            name="listenerEditDepartOnClick"
+            type="com.example.advnative_project_uts_160418066.view.DepartemenEditClick" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout 
         android:layout_width="match_parent"
@@ -14,7 +17,6 @@
         android:paddingBottom="15dp">
 
         <androidx.cardview.widget.CardView
-            android:tag="@{departemen.uuid}"
             android:onClick="@{listenerCardOnClick::onCardDepartemenClickListener}"
             android:id="@+id/cardItemListDepartement"
             android:layout_width="0dp"
@@ -45,6 +47,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgEditDepartement"
+                    android:tag="@{departemen.uuid}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:onClick="@{listenerEditDepartOnClick::onDepartemenEditClickListener}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_edit_24" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

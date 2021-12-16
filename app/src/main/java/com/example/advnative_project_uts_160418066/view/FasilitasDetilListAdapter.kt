@@ -11,7 +11,8 @@ import com.example.advnative_project_uts_160418066.model.Fasilitas
 import com.example.advnative_project_uts_160418066.util.loadImage
 import kotlinx.android.synthetic.main.fasilitas_list_item.view.*
 
-class FasilitasDetilListAdapter(val fasilitasList:ArrayList<Fasilitas>):RecyclerView.Adapter<FasilitasDetilListAdapter.FasilitasDetilViewHolder>() {
+class FasilitasDetilListAdapter(val fasilitasList:ArrayList<Fasilitas>):RecyclerView.Adapter<FasilitasDetilListAdapter.FasilitasDetilViewHolder>(),
+    FasilitasCardClickListener {
     class FasilitasDetilViewHolder(var view:FasilitasListItemBinding):RecyclerView.ViewHolder(view.root)
 
     fun updateFasilitasList(newFasilitasList: List<Fasilitas>) {
@@ -28,14 +29,15 @@ class FasilitasDetilListAdapter(val fasilitasList:ArrayList<Fasilitas>):Recycler
     }
 
     override fun onBindViewHolder(holder: FasilitasDetilViewHolder, position: Int) {
-        with(holder.view){
-//            imgItemListDetilFasilitas.loadImage(fasilitasList[position].gambar,progressBarItemListDetilFasilitas)
-//            txtNamaItemListDetilFasilitas.setText(fasilitasList[position].nama)
-            holder.view.fasilitas=fasilitasList[position]
-        }
+        holder.view.fasilitas=fasilitasList[position]
+        holder.view.fasilitasCardClickListener=this
     }
 
     override fun getItemCount(): Int {
         return fasilitasList.size
+    }
+
+    override fun onFasilitasCardClickListener(v: View) {
+        val uuid=v.tag.toString().toInt()
     }
 }
