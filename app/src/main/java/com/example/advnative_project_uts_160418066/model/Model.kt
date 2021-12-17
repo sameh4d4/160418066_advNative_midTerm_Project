@@ -20,15 +20,24 @@ data class User(
     val tglLahir:String?,
 )
 
+@Entity
 data class Dokter(
-    val id:String?,
-    val nama:String?,
-    val spesialisasi:String?,
-    val noHp:String?,
-    val email:String?,
-    val alamat:String?,
-    val gambar: String?,
-)
+    @ColumnInfo(name = "nama")
+    val nama:String,
+    @ColumnInfo(name = "spesialisasi")
+    val spesialisasi:String,
+    @ColumnInfo(name = "nohp")
+    val noHp:String,
+    @ColumnInfo(name = "email")
+    val email:String,
+    @ColumnInfo(name = "alamat")
+    val alamat:String,
+    @ColumnInfo(name = "gambar")
+    val gambar: String,
+){
+    @PrimaryKey(autoGenerate = true)
+    var uuid:Int=0
+}
 
 data class Fasilitas(
     val id:String?,

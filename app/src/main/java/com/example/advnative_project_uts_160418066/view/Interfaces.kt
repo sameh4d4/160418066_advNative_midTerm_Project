@@ -27,9 +27,24 @@ interface FasilitasSaveChangeClickListener{
     fun onFasilitasSaveChangeClickListener(v:View,obj:Fasilitas)
 }
 interface FasilitasDeleteClickListener{
-    fun onFasilitasDeleteClickListener(v:View)
+    fun onFasilitasDeleteClickListener(v:View,id:String)
 }
 interface FasilitasEditBtnImageClickListener{
-    fun onFasilitasEditBtnImageClickListener(v:View,obj:Fasilitas)
+    fun onFasilitasEditBtnImageClickListener(v:View)
+}
+interface FasilitasFABTambahClickListener{
+    fun onFasilitasFABTambahClickListener(v:View)
+}
+//endregion
+
+//region dokter
+interface DokterFABTambahClickListener{
+    fun onDokterFABTambahClickListener(v:View)
+}
+interface DokterBtnTambahBaruListener{
+    fun onDokterBtnTambahBaruListener(v:View)
+}
+interface DokterItemCardClickListener{
+    fun onDokterItemCardClickListener(v:View,id:Int)
 }
 //endregion

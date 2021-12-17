@@ -89,6 +89,9 @@
         <action
             android:id="@+id/actionEditFasilitas"
             app:destination="@id/fasilitasEditFragment" />
+        <action
+            android:id="@+id/action_daftarFasilitasDetilListFragment_to_tambahFasilitasFragment"
+            app:destination="@id/fasilitasTambahFragment" />
     </fragment>
     <fragment
         android:id="@+id/konsultasiBuatFragment"
@@ -142,6 +145,9 @@
             app:destination="@id/daftarDokterDetilFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/actionTambahDokter"
+            app:destination="@id/tambahDokterFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemProfile"
@@ -188,7 +194,7 @@
     <fragment
         android:id="@+id/fasilitasEditFragment"
         android:name="com.example.advnative_project_uts_160418066.view.FasilitasEditFragment"
-        android:label="FasilitasEditFragment" >
+        android:label="Edit Fasilitas">
         <argument
             android:name="id"
             app:argType="integer" />
@@ -196,5 +202,26 @@
             android:id="@+id/actionDaftarDetilFasilitasFromEdit"
             app:destination="@id/daftarFasilitasDetilListFragment"
             app:popUpTo="@id/daftarFasilitasDetilListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fasilitasTambahFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.TambahFasilitasFragment"
+        android:label="Tambah Fasilitas">
+        <argument
+            android:name="jenis"
+            app:argType="string" />
+        <action
+            android:id="@+id/actionDaftarDetilFasilitasFromTambah"
+            app:destination="@id/daftarFasilitasDetilListFragment"
+            app:popUpTo="@id/daftarFasilitasDetilListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tambahDokterFragment"
+        android:name="com.example.advnative_project_uts_160418066.view.TambahDokterFragment"
+        android:label="TambahDokterFragment" >
+        <action
+            android:id="@+id/actionDaftarDokterFromTambah"
+            app:destination="@id/itemDokter"
+            app:popUpTo="@id/itemDokter" />
     </fragment>
 </navigation>

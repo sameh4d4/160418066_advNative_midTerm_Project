@@ -22,13 +22,59 @@ class DetilFasilitasListViewModel(application: Application): AndroidViewModel(ap
     val TAG = "volleyTag"
     private var queue: RequestQueue?= null
 
+    fun deleteFasilitas(id: String){
+        queue = Volley.newRequestQueue(getApplication())
+        val url = "https://ubaya.fun/flutter/160418066/API/AdvNa_uas/deleteFasilitas.php"
+        val stringRequest = object: StringRequest(
+            Method.POST, url,
+            { response ->
+                Log.d("Status","berhasil")
+            },
+            {
+                Log.d("status", "gagal")
+            }
+        ){
+            override fun getParams(): MutableMap<String, String> {
+                val param= HashMap<String,String>()
+                param["id"] = id
+                return param
+            }
+        }
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
+    }
+
+    fun insertFasilitas(obj:Fasilitas,img:String){
+        queue = Volley.newRequestQueue(getApplication())
+        val url = "https://ubaya.fun/flutter/160418066/API/AdvNa_uas/insertFasilitas.php"
+        val stringRequest = object: StringRequest(
+            Method.POST, url,
+            { response ->
+                Log.d("Status","berhasil")
+            },
+            {
+                Log.d("status", "gagal")
+            }
+        ){
+            override fun getParams(): MutableMap<String, String> {
+                val param= HashMap<String,String>()
+                param["nama"] = obj.nama.toString()
+                param["jenis"] = obj.jenis.toString()
+                param["image"]= img
+                return param
+            }
+        }
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
+    }
+
     fun updateFasilitas(obj:Fasilitas){
         queue = Volley.newRequestQueue(getApplication())
         val url = "https://ubaya.fun/flutter/160418066/API/AdvNa_uas/editFasilitas.php"
         val stringRequest = object: StringRequest(
             Method.POST, url,
             { response ->
-
+                Log.d("Status","berhasil")
             },
             {
                 Log.d("status", "gagal")
@@ -37,8 +83,30 @@ class DetilFasilitasListViewModel(application: Application): AndroidViewModel(ap
             override fun getParams(): MutableMap<String, String> {
                 val param= HashMap<String,String>()
                 param["id"] = obj.id.toString()
-                param["nama"]=obj.nama.toString()
-                param["gambar"]=obj.gambar.toString()
+                param["nama"] = obj.nama.toString()
+                return param
+            }
+        }
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
+    }
+
+    fun uploadImage(img:String,id:String) {
+        val url = "https://ubaya.fun/flutter/160418066/API/AdvNa_uas/uploadImage.php"
+        queue = Volley.newRequestQueue(getApplication())
+        val stringRequest = object: StringRequest(
+            Method.POST, url,
+            { response ->
+                Log.d("status",response.toString())
+            },
+            {
+                Log.d("status", it.message.toString())
+            }
+        ){
+            override fun getParams(): MutableMap<String, String> {
+                val param= HashMap<String,String>()
+                param["id"] = id
+                param["image"]= img
                 return param
             }
         }

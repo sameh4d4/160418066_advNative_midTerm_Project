@@ -6,32 +6,47 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.advnative_project_uts_160418066.R
+import com.example.advnative_project_uts_160418066.databinding.FragmentDaftarFasilitasDetilListBinding
 import com.example.advnative_project_uts_160418066.viewmodel.DetilFasilitasListViewModel
 import kotlinx.android.synthetic.main.fragment_daftar_fasilitas_detil_list.*
 
-class DaftarFasilitasDetilListFragment : Fragment() {
+class DaftarFasilitasDetilListFragment : Fragment(), FasilitasFABTambahClickListener {
     private lateinit var viewModel: DetilFasilitasListViewModel
     private val fasilitasDetilListAdapter = FasilitasDetilListAdapter(arrayListOf())
+    private lateinit var dataBinding:FragmentDaftarFasilitasDetilListBinding
+    var jenis=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_daftar_fasilitas_detil_list, container, false)
+        dataBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_daftar_fasilitas_detil_list, container, false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val jenis=DaftarFasilitasDetilListFragmentArgs.fromBundle(requireArguments()).jenisFasilitas
+        jenis=DaftarFasilitasDetilListFragmentArgs.fromBundle(requireArguments()).jenisFasilitas
         viewModel = ViewModelProvider(this).get(DetilFasilitasListViewModel::class.java)
         viewModel.fasilitasGet(jenis)
+        dataBinding.fabTambahListener=this
         recViewFasilitasDetilList.layoutManager = LinearLayoutManager(context)
         recViewFasilitasDetilList.adapter = fasilitasDetilListAdapter
+        if(MainActivity.user.jabatan==1) fabTambahFasilitas.visibility=View.VISIBLE
+        else fabTambahFasilitas.visibility=View.GONE
+        observeViewModel()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.fasilitasGet(jenis)
         observeViewModel()
     }
 
@@ -58,5 +73,10 @@ class DaftarFasilitasDetilListFragment : Fragment() {
                 progressLoadFasilitasDetilList.visibility = View.GONE
             }
         })
+    }
+
+    override fun onFasilitasFABTambahClickListener(v: View) {
+        val action=DaftarFasilitasDetilListFragmentDirections.actionDaftarFasilitasDetilListFragmentToTambahFasilitasFragment(jenis)
+        Navigation.findNavController(v).navigate(action)
     }
 }

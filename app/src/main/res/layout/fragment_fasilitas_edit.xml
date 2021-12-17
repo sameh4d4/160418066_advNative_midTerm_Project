@@ -6,6 +6,8 @@
     <data>
         <variable name="fasilitas" type="com.example.advnative_project_uts_160418066.model.Fasilitas" />
         <variable name="btnPilihImageListener" type="com.example.advnative_project_uts_160418066.view.FasilitasEditBtnImageClickListener" />
+        <variable name="btnUpdateFasilitasListener" type="com.example.advnative_project_uts_160418066.view.FasilitasSaveChangeClickListener" />
+        <variable name="btnDeleteFasilitasListener" type="com.example.advnative_project_uts_160418066.view.FasilitasDeleteClickListener" />
     </data>
     <FrameLayout
     android:layout_width="match_parent"
@@ -58,6 +60,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{(view)->btnPilihImageListener.onFasilitasEditBtnImageClickListener(view)}"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
             app:srcCompat="@drawable/ic_baseline_image_search_24" />
 
@@ -92,8 +95,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="68dp"
+            android:onClick="@{(view)->btnUpdateFasilitasListener.onFasilitasSaveChangeClickListener(view,fasilitas)}"
             android:text="Simpan"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPreviewEditFasilitas" />
+
+        <Button
+            android:id="@+id/btnHapus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:onClick="@{(view)->btnDeleteFasilitasListener.onFasilitasDeleteClickListener(view,fasilitas.id)}"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#CC0F0F"
+            android:text="hapus"
+            app:layout_constraintEnd_toStartOf="@+id/btnSimpanEditFasilitas"
             app:layout_constraintTop_toBottomOf="@+id/imgPreviewEditFasilitas" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

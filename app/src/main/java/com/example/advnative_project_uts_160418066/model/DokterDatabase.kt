@@ -5,22 +5,22 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(Departemen::class), version =  1)
-abstract class DepartementDatabase: RoomDatabase() {
-    abstract fun departemenDao(): DepartemenDao
+@Database(entities = arrayOf(Dokter::class), version =  1)
+abstract class DokterDatabase :RoomDatabase(){
+    abstract fun dokterDao():DokterDao
 
-    companion object {
-        @Volatile private var instance: DepartementDatabase?= null
+    companion object{
+        @Volatile private var instance: DokterDatabase?= null
         private val LOCK = Any()
 
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
-            DepartementDatabase::class.java, "newdepartementdb")
+            DokterDatabase::class.java, "newdokterdb")
             .addMigrations()
             .build()
 
         operator fun invoke(context: Context) {
-            if(instance!=null) {
+            if(instance !=null) {
                 synchronized(LOCK) {
                     instance ?: buildDatabase(context).also {
                         instance = it
@@ -28,6 +28,5 @@ abstract class DepartementDatabase: RoomDatabase() {
                 }
             }
         }
-
     }
 }

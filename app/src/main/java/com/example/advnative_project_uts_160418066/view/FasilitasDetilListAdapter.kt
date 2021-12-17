@@ -41,7 +41,6 @@ class FasilitasDetilListAdapter(val fasilitasList:ArrayList<Fasilitas>):Recycler
 
     override fun onFasilitasCardClickListener(v: View) {
         val uuid = v.tag.toString().toInt()
-        Log.d("uid",uuid.toString())
         if (MainActivity.user.jabatan == 1) {
             val act = DaftarFasilitasDetilListFragmentDirections.actionEditFasilitas(uuid)
             Navigation.findNavController(v).navigate(act)

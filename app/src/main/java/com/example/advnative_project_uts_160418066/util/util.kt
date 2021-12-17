@@ -8,6 +8,7 @@ import androidx.databinding.BindingAdapter
 import androidx.room.Room
 import com.example.advnative_project_uts_160418066.R
 import com.example.advnative_project_uts_160418066.model.DepartementDatabase
+import com.example.advnative_project_uts_160418066.model.DokterDatabase
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
@@ -25,10 +26,19 @@ fun ImageView.loadImage(url: String?, progressBar: ProgressBar) {
         })
 }
 
-val DB_NAME = "newdepartementdb"
-fun buildDb(context: Context):DepartementDatabase {
+val DB_NAME_DEPARTEMEN = "newdepartementdb"
+fun buildDbDepart(context: Context):DepartementDatabase {
     val db = Room.databaseBuilder(context,
-        DepartementDatabase::class.java, DB_NAME)
+        DepartementDatabase::class.java, DB_NAME_DEPARTEMEN)
+        .addMigrations()
+        .build()
+    return db
+}
+
+val DB_NAME_DOKTER = "newdokterdb"
+fun buildDbDokter(context: Context):DokterDatabase {
+    val db = Room.databaseBuilder(context,
+        DokterDatabase::class.java, DB_NAME_DOKTER)
         .addMigrations()
         .build()
     return db

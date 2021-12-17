@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.advnative_project_uts_160418066.model.Departemen
-import com.example.advnative_project_uts_160418066.util.buildDb
+import com.example.advnative_project_uts_160418066.util.buildDbDepart
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -21,19 +21,19 @@ class DepartementViewModel (application: Application): AndroidViewModel(applicat
 
     fun addDepartement(list:List<Departemen>) {
         launch {
-            val db = buildDb(getApplication())
+            val db = buildDbDepart(getApplication())
             db.departemenDao().insertAll(*list.toTypedArray())
         }
     }
     fun getDepartement(uuid:Int){
         launch {
-            val db= buildDb(getApplication())
+            val db= buildDbDepart(getApplication())
             departemenLD.value=db.departemenDao().selectDepartement(uuid)
         }
     }
     fun updateDepartement(depart:Departemen){
         launch {
-            val db = buildDb(getApplication())
+            val db = buildDbDepart(getApplication())
             db.departemenDao().update(depart.nama,depart.uuid)
         }
     }
